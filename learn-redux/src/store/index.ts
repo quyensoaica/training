@@ -1,25 +1,27 @@
-import { applyMiddleware, combineReducers, legacy_createStore as createStore } from "redux";
-import { todoReducer } from "./todoStore/todoReducer";
-import { thunk } from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
+import todoSlide from "./todoStore/todoReducer";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 
-const rootReducer = combineReducers({
-  // Add your reducers here
-  todoStore: todoReducer,
-});
-
-const persistConfig = {
+const todoPersist = {
   key: "root",
-  storage: storage,
-  // blacklist: ["navigation"],
+  storage,
 };
 
-export type AppState = ReturnType<typeof rootReducer>;
+export const store = configureStore({
+  reducer: {
+    todo: persistReducer(todoPersist, todoSlide),
+  },
+  // Added this mdware to fix error "A none-serializable value was detected..."
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
+});
 
-const rReducer = persistReducer(persistConfig, rootReducer as any);
+export type RootState = ReturnType<typeof store.getState>;
 
-export const store = createStore(rReducer, applyMiddleware(thunk));
+export type AppDispatch = typeof store.dispatch;
 
-export const persistor = persistStore(store as any);
+export const persistor = persistStore(store);

@@ -2,15 +2,15 @@ import { memo, useEffect, useState } from "react";
 import { ITodoItem } from "../../types/todoTypes";
 import TodoItem from "./TodoItem";
 import { useDispatch, useSelector } from "react-redux";
-import todoThunk from "../../store/todoStore/todoThunk";
+import { todoAction } from "../../store/todoStore/todoReducer";
 
 const TodoList = () => {
   const [isCheckAll, setIsCheckAll] = useState(false);
   const dispatch = useDispatch();
-  const { todoList } = useSelector((state: any) => state.todoStore);
+  const { todoList } = useSelector((state: any) => state.todo);
   const handleCheckAll = () => {
     setIsCheckAll(!isCheckAll);
-    dispatch<any>(todoThunk.toggleAllTodoItems(todoList));
+    dispatch<any>(todoAction.toggleAllTodoItems());
   };
   useEffect(() => {
     const check = todoList.every((todo: ITodoItem) => todo.completed);

@@ -1,194 +1,80 @@
-import { ITodoItem, TodoActionTypes } from "../../types/todoTypes";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import { ITodoItem } from "../../types/todoTypes";
+const fetchTodoFromServer = createAsyncThunk("todos/fetchTodoFromServer", async (_, { rejectWithValue }) => {
+  try {
+    const response = await fetch("https://66b049b36a693a95b53843dc.mockapi.io/list-todo");
+    const data = await response.json();
+    return data;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
 
-const setTodoItem = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.SET_TODO_ITEM,
-    payload: todoItem,
-  };
-};
-const addTodoItem = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.ADD_TODO_ITEM,
-    payload: todoItem,
-  };
-};
-const setAction = (action: "create" | "update") => {
-  return {
-    type: TodoActionTypes.SET_ACTION,
-    payload: action,
-  };
-};
-const updateTodoItem = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.UPDATE_TODO_ITEM,
-    payload: todoItem,
-  };
-};
-const deleteTodoItem = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.DELETE_TODO_ITEM,
-    payload: todoItem,
-  };
-};
-const toggleTodoItem = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.TOGGLE_TODO_ITEM,
-    payload: todoItem,
-  };
-};
-const toggleAllTodoItems = () => {
-  return {
-    type: TodoActionTypes.TOGGLE_ALL_TODO_ITEMS,
-  };
-};
-const getTodoListFromServer = (todoList: ITodoItem[]) => {
-  return {
-    type: TodoActionTypes.GET_TODO_LIST_FROM_SERVER,
-    payload: todoList,
-  };
-};
+const addNewTodoItem = createAsyncThunk("todos/addNewTodoItem", async (todoItem: ITodoItem, { rejectWithValue }) => {
+  try {
+    const res = await fetch("https://66b049b36a693a95b53843dc.mockapi.io/list-todo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todoItem),
+    });
+    const data = await res.json();
+    return data as ITodoItem;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
 
-const fetchTodoStart = () => {
-  return {
-    type: TodoActionTypes.FETCH_TODO_START,
-    payload: null,
-  };
-};
-const fetchTodoSuccess = (todoList: ITodoItem[]) => {
-  return {
-    type: TodoActionTypes.FETCH_TODO_SUCCESS,
-    payload: todoList,
-  };
-};
-const fetchTodoFailure = (error: string) => {
-  return {
-    type: TodoActionTypes.FETCH_TODO_FAILURE,
-    payload: error,
-  };
-};
-const addTodoStart = () => {
-  return {
-    type: TodoActionTypes.ADD_TODO_START,
-    payload: null,
-  };
-};
-const addTodoSuccess = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.ADD_TODO_SUCCESS,
-    payload: todoItem,
-  };
-};
-const addTodoFailure = (error: string) => {
-  return {
-    type: TodoActionTypes.ADD_TODO_FAILURE,
-    payload: error,
-  };
-};
-const updateTodoStart = () => {
-  return {
-    type: TodoActionTypes.UPDATE_TODO_START,
-    payload: null,
-  };
-};
-const updateTodoSuccess = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.UPDATE_TODO_SUCCESS,
-    payload: todoItem,
-  };
-};
-const updateTodoFailure = (error: string) => {
-  return {
-    type: TodoActionTypes.UPDATE_TODO_FAILURE,
-    payload: error,
-  };
-};
-const deleteTodoStart = () => {
-  return {
-    type: TodoActionTypes.DELETE_TODO_START,
-    payload: null,
-  };
-};
-const deleteTodoSuccess = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.DELETE_TODO_SUCCESS,
-    payload: todoItem,
-  };
-};
-const deleteTodoFailure = (error: string) => {
-  return {
-    type: TodoActionTypes.DELETE_TODO_FAILURE,
-    payload: error,
-  };
-};
-const toggleTodoStart = () => {
-  return {
-    type: TodoActionTypes.TOGGLE_TODO_START,
-    payload: null,
-  };
-};
-const toggleTodoSuccess = (todoItem: ITodoItem) => {
-  return {
-    type: TodoActionTypes.TOGGLE_TODO_SUCCESS,
-    payload: todoItem,
-  };
-};
-const toggleTodoFailure = (error: string) => {
-  return {
-    type: TodoActionTypes.TOGGLE_TODO_FAILURE,
-    payload: error,
-  };
-};
-const toggleAllStart = () => {
-  return {
-    type: TodoActionTypes.TOGGLE_ALL_START,
-    payload: null,
-  };
-};
-const toggleAllSuccess = () => {
-  return {
-    type: TodoActionTypes.TOGGLE_ALL_SUCCESS,
-    payload: null,
-  };
-};
-const toggleAllFailure = (error: string) => {
-  return {
-    type: TodoActionTypes.TOGGLE_ALL_FAILURE,
-    payload: error,
-  };
-};
+const updateTodoItem = createAsyncThunk("todos/updateTodoItem", async (todoItem: ITodoItem, { rejectWithValue }) => {
+  try {
+    const res = await fetch(`https://66b049b36a693a95b53843dc.mockapi.io/list-todo/${todoItem.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todoItem),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
 
-const todoActions = {
-  setTodoItem,
-  addTodoItem,
-  setAction,
+const deleteTodoItem = createAsyncThunk("todos/deleteTodoItem", async (todoItem: ITodoItem, { rejectWithValue }) => {
+  try {
+    const res = await fetch(`https://66b049b36a693a95b53843dc.mockapi.io/list-todo/${todoItem.id}`, {
+      method: "DELETE",
+    });
+    const data = await res.json();
+    return data;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
+
+const toggleTodoItem = createAsyncThunk("todos/toggleTodoItem", async (todoItem: ITodoItem, { rejectWithValue }) => {
+  try {
+    const res = await fetch(`https://66b049b36a693a95b53843dc.mockapi.io/list-todo/${todoItem.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ ...todoItem, completed: !todoItem.completed }),
+    });
+    const data = await res.json();
+    return data;
+  } catch (error: any) {
+    return rejectWithValue(error.message);
+  }
+});
+
+const todoThunk = {
+  fetchTodoFromServer,
+  addNewTodoItem,
   updateTodoItem,
   deleteTodoItem,
   toggleTodoItem,
-  toggleAllTodoItems,
-  getTodoListFromServer,
-
-  fetchTodoStart,
-  fetchTodoSuccess,
-  fetchTodoFailure,
-
-  addTodoStart,
-  addTodoSuccess,
-  addTodoFailure,
-
-  updateTodoStart,
-  updateTodoSuccess,
-  updateTodoFailure,
-
-  deleteTodoStart,
-  deleteTodoSuccess,
-  deleteTodoFailure,
-
-  toggleTodoStart,
-  toggleTodoSuccess,
-  toggleTodoFailure,
-
-  toggleAllStart,
-  toggleAllSuccess,
-  toggleAllFailure,
 };
-export default todoActions;
+export default todoThunk;

@@ -1,7 +1,7 @@
+import todoThunk from "../../store/todoStore/todoAction";
+import { todoAction } from "../../store/todoStore/todoReducer";
 import { ITodoItem } from "../../types/todoTypes";
 import { useDispatch } from "react-redux";
-import todoActions from "../../store/todoStore/todoAction";
-import todoThunk from "../../store/todoStore/todoThunk";
 
 interface ITodoItemProps {
   todo: ITodoItem;
@@ -9,8 +9,8 @@ interface ITodoItemProps {
 const TodoItem = ({ todo }: ITodoItemProps) => {
   const dispatch = useDispatch();
   const handleUpdate = () => {
-    dispatch(todoActions.setTodoItem(todo));
-    dispatch(todoActions.setAction("update"));
+    dispatch(todoAction.setTodoItem(todo));
+    dispatch(todoAction.setAction("update"));
   };
   const handleDelete = () => {
     const check = confirm("Are you sure you want to delete this todo?");
