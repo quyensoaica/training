@@ -1,0 +1,23 @@
+.button-scrolltop {
+  display: block;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  position: fixed;
+  bottom: -100px;
+  right: 15px;
+  z-index: 9999;
+  padding: 15px;
+  background: radial-gradient(circle, rgba(115, 227, 198, 1) 0%, rgba(127, 181, 191, 1) 20%, rgba(139, 139, 184, 1) 52%, rgba(44, 202, 224, 1) 78%, rgba(92, 239, 220, 1) 100%);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  &.show {
+    bottom: 20px;
+  }
+  &:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 20px -50px 36px -28px inset;
+  }
+  &:active {
+    transform: scale(0.95);
+  }
+}

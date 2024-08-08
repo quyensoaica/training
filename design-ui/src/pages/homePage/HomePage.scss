@@ -1,0 +1,348 @@
+.joinden-wrapper {
+  padding-top: 150px;
+  padding-bottom: 150px;
+  background-color: rgba(244, 246, 248, 1);
+  .joinden-item {
+    margin-top: 75px;
+    margin-bottom: 75px;
+    position: relative;
+    z-index: 1;
+    // display: flex;
+
+    &.leftbox {
+      // justify-content: flex-start;
+      margin-right: 10%;
+    }
+
+    &.rightbox {
+      margin-left: 10%;
+    }
+
+    // .joinden-item__box {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   gap: 10px;
+    // }
+  }
+  .joinden-item__imagebox {
+    margin-left: 40px;
+    margin-bottom: 60px;
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .joinden-item__image--shadown {
+      height: 100%;
+      width: 100%;
+      background-color: aqua;
+      position: absolute;
+      top: 40px;
+      z-index: -1;
+      left: -40px;
+    }
+
+    &.imagebox--right {
+      margin-left: 0;
+      margin-right: 40px;
+      .joinden-item__image--shadown {
+        right: -40px;
+        left: 40px;
+      }
+    }
+  }
+  .joinden-item__content {
+    max-width: 45rem;
+    padding-left: 10px;
+    padding-right: 10px;
+    .joinden-item__content--header {
+      font-family: "Alternate Gothic No1 D", sans-serif;
+      color: var(--text-black);
+      font-size: 3.6rem;
+      font-weight: 500;
+      line-height: 3.6rem;
+    }
+
+    .joinden-item__content--title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      line-height: 2.6rem;
+      text-align: left;
+      margin-top: 20px;
+      margin-bottom: 20px;
+      color: rgba(35, 35, 39, 0.7);
+    }
+
+    .joinden-item__content--list {
+      margin-left: 20px;
+      li {
+        font-family: Oxygen;
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 2.2rem;
+        text-align: left;
+        color: var(--text-black);
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .joinden-button {
+    margin-top: 10px;
+  }
+}
+
+.content-box {
+  padding: 100px;
+}
+
+.workden-wrapper {
+  .workden__list {
+    margin-top: 60px;
+    margin-bottom: 140px;
+
+    .workden__item {
+      // width: 264px;
+      min-height: 264px;
+      height: 100%;
+      background-color: rgba(244, 246, 248, 1);
+      padding: 0 40px 40px 40px;
+      margin-bottom: 20px;
+      position: relative;
+      margin-bottom: 20px;
+    }
+
+    .workden__item--icon {
+      width: 40px;
+      height: 40px;
+      top: 40px;
+      left: 44px;
+      position: absolute;
+    }
+
+    .workden__item--number {
+      font-family: "Alternate Gothic No1 D";
+      font-size: 5.6rem;
+      font-weight: 400;
+      line-height: 5.6rem;
+      letter-spacing: -0.015em;
+      text-align: right;
+      color: rgba(23, 41, 64, 0.1);
+      position: absolute;
+      top: 19px;
+      right: 19px;
+    }
+
+    .workden__item--title {
+      margin-top: 112px;
+      font-family: Oxygen;
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 2.8rem;
+      text-align: left;
+      color: rgba(35, 35, 39, 1);
+      display: inline-block;
+    }
+  }
+  .workden__entrepre {
+    .workden__entrepre--title {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.feedback-wrapper {
+  background-color: rgba(244, 246, 248, 1);
+  .feedback__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .feedback__header--button {
+      display: flex;
+      gap: 5px;
+      button {
+        border-radius: 0;
+        width: 60px;
+        height: 60px;
+        background-color: rgba(23, 41, 64, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .slider {
+    overflow: hidden;
+  }
+  .feedback__list {
+    .feedback__item {
+      margin-top: 70px;
+      padding: 20px;
+      background-color: var(--text-white);
+      border-radius: 4px;
+      position: relative;
+
+      .feedback__item--header {
+        display: flex;
+        align-items: end;
+        gap: 10px;
+        margin-top: -65px;
+        margin-bottom: 20px;
+      }
+
+      .feedback__item--info {
+        margin-left: 20px;
+      }
+
+      .feedback__item--name {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 2.8rem;
+      }
+
+      .feedback__item--position {
+        font-size: 1.4rem;
+        font-weight: 400;
+        line-height: 2.2rem;
+      }
+
+      .feedback__item--title {
+        margin-bottom: 20px;
+      }
+
+      .readmore {
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: rgba(32, 67, 112, 1);
+        position: relative;
+      }
+    }
+  }
+
+  .feedback__footer {
+    background-color: var(--primary-color);
+    padding: 40px 20px;
+    text-align: center;
+  }
+}
+
+.event-wrapper {
+  .event__header {
+    padding-bottom: 60px;
+  }
+  .event__space {
+    width: 100%;
+    height: 10px;
+    background-color: rgba(233, 236, 241, 1);
+    margin: 30px 0;
+  }
+  .event__list {
+    .event__item {
+      margin-bottom: 40px;
+      .event__item--image {
+      }
+      .event__item--content {
+        margin: 15px 0;
+        .event__item--date {
+          font-size: 1.6rem;
+          font-weight: 700;
+          line-height: 2.2rem;
+          letter-spacing: 0.2em;
+          color: rgba(32, 67, 112, 1);
+        }
+        .event__item--name {
+          font-family: "Alternate Gothic No1 D";
+          margin: 15px 0;
+          font-size: 3.6rem;
+          font-weight: 400;
+          line-height: 3.6rem;
+          letter-spacing: -0.015em;
+          color: var(--text-black);
+        }
+      }
+    }
+  }
+
+  .event__footer {
+    text-align: center;
+    background-color: var(--primary-color);
+    padding: 60px 20px;
+
+    .event__footer--title {
+      font-family: "Alternate Gothic No1 D";
+      font-size: 5.6rem;
+      font-weight: 500;
+      line-height: 5.6rem;
+      letter-spacing: -0.015em;
+      color: var(--text-white);
+      text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .content-box {
+    padding: 20px;
+  }
+
+  .joinden-item {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .workden-wrapper {
+    .workden__entrepre {
+      .leftbox {
+        text-align: center;
+      }
+      .rightbox {
+        img {
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+  .feedback-wrapper {
+    .feedback__list {
+      .feedback__item {
+      }
+    }
+    .feedback__header {
+      .feedback__header--button {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .content-box {
+    padding: 40px;
+  }
+  .workden-wrapper {
+    .workden__entrepre {
+      .leftbox {
+        text-align: center;
+      }
+      .rightbox {
+        img {
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  .content-box {
+    padding: 60px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .content-box {
+    padding: 80px;
+  }
+}

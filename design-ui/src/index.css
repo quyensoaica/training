@@ -1,0 +1,126 @@
+@font-face {
+  font-family: "Alternate Gothic No1 D";
+  src: local("Alternate Gothic No1 D"), url(./assets/fonts/alternate-gothic-no1-d.ttf) format("opentype");
+}
+@font-face {
+  font-family: "Oxygen";
+  font-weight: 700;
+  src: local("Oxygen"), url(./assets/fonts/Oxygen-Bold.ttf) format("opentype");
+}
+@font-face {
+  font-family: "Oxygen";
+  font-weight: 400;
+  src: local("Oxygen"), url(./assets/fonts/Oxygen-Regular.ttf) format("opentype");
+}
+@font-face {
+  font-family: "Oxygen";
+  font-weight: 300;
+  src: local("Oxygen"), url(./assets/fonts/Oxygen-Light.ttf) format("opentype");
+}
+:root {
+  font-family: "Oxygen";
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 10px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+
+  --primary-color: rgba(32, 67, 112, 1);
+  --secondary-color: rgba(255, 204, 0, 1);
+
+  --text-black: rgba(35, 35, 39, 1);
+  --text-white: #ffffff;
+  --text-primary: var(--primary-color);
+  --text-secondary: var(--secondary-color);
+  --text-gray: rgba(142, 142, 147, 1);
+  --text-success: rgba(52, 199, 89, 1);
+  --text-danger: rgba(255, 59, 48, 1);
+  --text-warning: rgba(255, 149, 0, 1);
+  --text-info: rgba(90, 200, 250, 1);
+
+  --bg-white: #ffffff;
+
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
+}
+
+html {
+  font-size: 62.5%;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  overflow-x: hidden;
+  font-size: 1.6rem;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+/* @media (max-width: 320px) {
+  :root {
+    font-size: 8px;
+  }
+}
+@media (min-width: 964px) {
+  :root {
+    font-size: 8px;
+  }
+}
+@media (min-width: 1200px) {
+  :root {
+    font-size: 10px;
+  }
+} */
+@media (min-width: 1600px) {
+  :root {
+    font-size: 14px;
+  }
+}
